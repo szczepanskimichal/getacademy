@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eksempel 1</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+      #description #image-container {
+        display: none;
+      }
+    </style>
   </head>
   <body class="button-container">
     <button id="ingenLayout">Ingen layout</button>
@@ -14,9 +19,9 @@
 
     <h1>Eksempel 1</h1>
     <div class="card" id="card1">
-      <div class="header tool"  onclick="toggleContent()" >Verktøy</div>
+      <div class="header tool" >Verktøy</div>
       
-      <div class="description">
+      <div class="description"  >
         De to viktigste verktøyene vi skal bruke er disse:
         <ul>
           <li>
@@ -43,7 +48,7 @@
     </div>
     <div class="card" id="card2">
       <div class="header html">HTML</div>
-      <div class="description hidden">
+      <div class="description" >
         <p>Vi bruker HTML til å definere et dokument.</p>
         <ul>
           <li>Tagger for grunnleggende oppsett av en HTML-fil</li>
@@ -67,7 +72,7 @@
     </div>
     <div class="card" id="card3">
       <div class="header css">CSS</div>
-      <div class="description">
+      <div class="description" >
         <p>
           Vi bruker CSS til å <i>style</i> et dokument, altså farger, fonter,
           utseende og lignende.
@@ -109,7 +114,7 @@
     </div>
     <div class="card" id="card4">
       <div class="header javascript">JavaScript</div>
-      <div class="description">
+      <div class="description" >
         <p>
           Det viktigste vi skal lære er programmeringsspråket JavaScript. Vi
           skal lære grunnleggende programmering ved å manipulere HTML- og
@@ -128,9 +133,10 @@
         </ul>
       </div>
     </div>
-    <div class="card" >
-      <div class="header doll" id="card5" onClick="verktøy()">Hode,kropp og ben</div>
-      <div class="image-container">
+    <div class="card" id="card5">
+      <div class="header doll"  onClick="verktøy()">Hode,kropp og ben</div>
+      <div class="description" >
+        <div class="image-container" >
         <button>◀</button>
         <img src="img/head1.png" />
         <button>▶</button>
@@ -144,16 +150,38 @@
         <button>◀</button>
         <img src="img/legs1.png" />
         <button>▶</button>
-      </div>
+      </div></div>
+      
     </div>;
     </div>
     
+   
 
     <script>
-      document.getElementById('card1').addEventListener('click', function() {
-      const content = this.querySelector('.description');
-      content.classList.toggle('hidden');
-    });
+//       // document.getElementById('card1').innerHTML = `dfdffd`;
+// document.getElementById('card1').addEventListener('click', function() {
+//   // document.getElementById('card1').querySelector('.description').style.display = 'block';
+// const description = document.getElementById('card1').querySelector('.description');
+// if (description.style.display === 'none') {
+//   description.style.display = 'block';
+// } else {
+//   description.style.display = 'none';
+// }
+// });
+
+const cards = ['card1', 'card2', 'card3', 'card4', 'card5'];
+
+cards.forEach(cardId => {
+  document.getElementById(cardId).addEventListener('click', function() {
+    const description = document.getElementById(cardId).querySelector('.description', "image-container" );
+    if (description.style.display === 'none' || description.style.display === '') {
+      description.style.display = 'block';
+    } else {
+      description.style.display = 'none';
+    }
+  });
+});
+    
     </script>
   </body>
 </html>
