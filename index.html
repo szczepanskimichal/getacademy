@@ -6,9 +6,9 @@
     <title>Eksempel 1</title>
     <link rel="stylesheet" href="style.css" />
     <style>
-      #description #image-container {
+      /* #description #image-container {
         display: none;
-      }
+      } */
     </style>
   </head>
   <body class="button-container">
@@ -18,170 +18,174 @@
     <button>Grid layout</button>
 
     <h1>Eksempel 1</h1>
-    <div class="card" id="card1">
-      <div class="header tool" >Verktøy</div>
-      
-      <div class="description"  >
-        De to viktigste verktøyene vi skal bruke er disse:
-        <ul>
-          <li>
-            Koderedigeringsprogrammet
-            <a href="https://code.visualstudio.com/" target="new"
-              >Visual Studio Code</a
-            >
-            <br />Vi skal bruke noen <i>extensions:</i>
-            <ul>
-              <li>JavaScript-booster</li>
-              <li>es6-string-html</li>
-              <li>live-server</li>
-              <li>live-share</li>
-            </ul>
-          </li>
-          <li>
-            Nettleseren
-            <a href="https://www.google.com/intl/no/chrome/" target="new"
-              >Google Chrome</a
-            >
-          </li>
-        </ul>
-      </div>
+    <div class="card">
+      <div class="header tool" onclick="showVerktøy()">Verktøy</div>
+      <div id="description1"></div>
     </div>
-    <div class="card" id="card2">
-      <div class="header html">HTML</div>
-      <div class="description" >
-        <p>Vi bruker HTML til å definere et dokument.</p>
-        <ul>
-          <li>Tagger for grunnleggende oppsett av en HTML-fil</li>
-          <li>Tagger for grunnleggende formatering av tekst</li>
-          <li>&lt;div&gt;</li>
-          <li>&lt;input type=&quot;text&quot;&gt;</li>
-          <li>&lt;button&gt;</li>
-
-          <li>
-            <a href="https://www.w3schools.com/html/default.asp" target="new"
-              >W3Schools HTML Tutorial</a
-            >
-          </li>
-          <li>
-            <a href="https://www.w3schools.com/tags/default.asp" target="new"
-              >W3Schools HTML Reference</a
-            >
-          </li>
-        </ul>
-      </div>
+    <div class="card">
+      <div class="header html" onclick="showHtml()">HTML</div>
+      <div class="descriptionHtml" id="descriptionHtml"></div>
     </div>
-    <div class="card" id="card3">
-      <div class="header css">CSS</div>
-      <div class="description" >
-        <p>
-          Vi bruker CSS til å <i>style</i> et dokument, altså farger, fonter,
-          utseende og lignende.
-        </p>
-        <ul>
-          <li>background-color</li>
-          <li>color</li>
-          <li>padding</li>
-          <li>margin</li>
-          <li>border</li>
-          <li>text-align</li>
-          <li>font-size</li>
-          <li>
-            <a
-              href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
-              target="new"
-              >Flexbox
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://css-tricks.com/snippets/css/complete-guide-grid/"
-              target="new"
-              >Grid
-            </a>
-          </li>
-          <li>
-            <a href="https://www.w3schools.com/css/default.asp" target="new"
-              >W3Schools CSS Tutorial
-            </a>
-          </li>
-          <li>
-            <a href="https://www.w3schools.com/cssref/index.php" target="new"
-              >W3Schools CSS Reference</a
-            >
-          </li>
-        </ul>
-      </div>
+    <div class="card">
+      <div class="header css" onclick="showCss()">CSS</div>
+      <div class="description" id="descriptionCss"></div>
     </div>
-    <div class="card" id="card4">
-      <div class="header javascript">JavaScript</div>
-      <div class="description" >
-        <p>
-          Det viktigste vi skal lære er programmeringsspråket JavaScript. Vi
-          skal lære grunnleggende programmering ved å manipulere HTML- og
-          CSS-kode på en nettside ved hjelp av JavaScript.
-        </p>
-        <ul>
-          <li>
-            Det finnes en W3Schools JavaScript Tutorial, men her anbefaler vi
-            heller å følge kurset vårt på Moodle.
-          </li>
-          <li>
-            <a href="https://www.w3schools.com/jsref/default.asp" target="new"
-              >W3Schools JavaScript Reference</a
-            >
-          </li>
-        </ul>
-      </div>
+    <div class="card">
+      <div class="header javascript" onclick="showJs()">JavaScript</div>
+      <div id="js" class="description"></div>
     </div>
-    <div class="card" id="card5">
-      <div class="header doll"  onClick="verktøy()">Hode,kropp og ben</div>
-      <div class="description" >
-        <div class="image-container" >
-        <button>◀</button>
-        <img src="img/head1.png" />
-        <button>▶</button>
-      </div>
-      <div class="image-container">
-        <button>◀</button>
-        <img src="img/body1.png" />
-        <button>▶</button>
-      </div>
-      <div class="image-container">
-        <button>◀</button>
-        <img src="img/legs1.png" />
-        <button>▶</button>
-      </div></div>
-      
-    </div>;
+    <div class="card">
+      <div class="header doll" onclick="showLala()">Hode,kropp og ben</div>
+      <div class="description" id="lala"></div>
     </div>
-    
-   
 
     <script>
-//       // document.getElementById('card1').innerHTML = `dfdffd`;
-// document.getElementById('card1').addEventListener('click', function() {
-//   // document.getElementById('card1').querySelector('.description').style.display = 'block';
-// const description = document.getElementById('card1').querySelector('.description');
-// if (description.style.display === 'none') {
-//   description.style.display = 'block';
-// } else {
-//   description.style.display = 'none';
-// }
-// });
+      function showVerktøy() {
+        tomAlt();
+        document.getElementById("description1").innerHTML = `
+          <div class="description">
+            <div>
+              De to viktigste verktøyene vi skal bruke er disse:
+              <ul>
+                <li>
+                  Koderedigeringsprogrammet
+                  <a href="https://code.visualstudio.com/" target="new">
+                    Visual Studio Code
+                  </a>
+                  <br />Vi skal bruke noen <i>extensions:</i>
+                  <ul>
+                    <li>JavaScript-booster</li>
+                    <li>es6-string-html</li>
+                    <li>live-server</li>
+                    <li>live-share</li>
+                  </ul>
+                </li>
+                <li>
+                  Nettleseren
+                  <a href="https://www.google.com/intl/no/chrome/" target="new">
+                    Google Chrome
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>`;
+      }
 
-const cards = ['card1', 'card2', 'card3', 'card4', 'card5'];
+      function showHtml() {
+        tomAlt();
+        document.getElementById("descriptionHtml").innerHTML = `
+          <div class="description">
+            <p>Vi bruker HTML til å definere et dokument.</p>
+            <ul>
+              <li>Tagger for grunnleggende oppsett av en HTML-fil</li>
+              <li>Tagger for grunnleggende formatering av tekst</li>
+              <li>&lt;div&gt;</li>
+              <li>&lt;input type=&quot;text&quot;&gt;</li>
+              <li>&lt;button&gt;</li>
+              <li>
+                <a href="https://www.w3schools.com/html/default.asp" target="new">
+                  W3Schools HTML Tutorial
+                </a>
+              </li>
+              <li>
+                <a href="https://www.w3schools.com/tags/default.asp" target="new">
+                  W3Schools HTML Reference
+                </a>
+              </li>
+            </ul>
+          </div>`;
+      }
 
-cards.forEach(cardId => {
-  document.getElementById(cardId).addEventListener('click', function() {
-    const description = document.getElementById(cardId).querySelector('.description', "image-container" );
-    if (description.style.display === 'none' || description.style.display === '') {
-      description.style.display = 'block';
-    } else {
-      description.style.display = 'none';
-    }
-  });
-});
-    
+      function showCss() {
+        tomAlt();
+        document.getElementById("descriptionCss").innerHTML = `
+          <p>
+            Vi bruker CSS til å <i>style</i> et dokument, altså farger, fonter,
+            utseende og lignende.
+          </p>
+          <ul>
+            <li>background-color</li>
+            <li>color</li>
+            <li>padding</li>
+            <li>margin</li>
+            <li>border</li>
+            <li>text-align</li>
+            <li>font-size</li>
+            <li>
+              <a
+                href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
+                target="new">
+                Flexbox
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://css-tricks.com/snippets/css/complete-guide-grid/"
+                target="new">
+                Grid
+              </a>
+            </li>
+            <li>
+              <a href="https://www.w3schools.com/css/default.asp" target="new">
+                W3Schools CSS Tutorial
+              </a>
+            </li>
+            <li>
+              <a href="https://www.w3schools.com/cssref/index.php" target="new">
+                W3Schools CSS Reference
+              </a>
+            </li>
+          </ul>`;
+      }
+
+      function showJs() {
+        tomAlt();
+        document.getElementById("js").innerHTML = `
+          <p>
+            Det viktigste vi skal lære er programmeringsspråket JavaScript. Vi
+            skal lære grunnleggende programmering ved å manipulere HTML- og
+            CSS-kode på en nettside ved hjelp av JavaScript.
+          </p>
+          <ul>
+            <li>
+              Det finnes en W3Schools JavaScript Tutorial, men her anbefaler vi
+              heller å følge kurset vårt på Moodle.
+            </li>
+            <li>
+              <a href="https://www.w3schools.com/jsref/default.asp" target="new">
+                W3Schools JavaScript Reference
+              </a>
+            </li>
+          </ul>`;
+      }
+
+      function showLala() {
+        tomAlt();
+        document.getElementById("lala").innerHTML = `
+          <div class="image-container">
+            <button>◀</button>
+            <img src="img/head1.png" />
+            <button>▶</button>
+          </div>
+          <div class="image-container">
+            <button>◀</button>
+            <img src="img/body1.png" />
+            <button>▶</button>
+          </div>
+          <div class="image-container">
+            <button>◀</button>
+            <img src="img/legs1.png" />
+            <button>▶</button>
+          </div>`;
+      }
+
+      function tomAlt() {
+        document.getElementById("description1").innerHTML = "";
+        document.getElementById("descriptionHtml").innerHTML = "";
+        document.getElementById("descriptionCss").innerHTML = "";
+        document.getElementById("js").innerHTML = "";
+        document.getElementById("lala").innerHTML = "";
+      }
     </script>
   </body>
 </html>
