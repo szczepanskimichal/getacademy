@@ -20,11 +20,11 @@
     <h1>Eksempel 1</h1>
     <div class="card">
       <div class="header tool" onclick="showVerktøy()">Verktøy</div>
-      <div id="description1"></div>
+      <div id="description1" class="descriptionVerktøy"></div>
     </div>
     <div class="card">
       <div class="header html" onclick="showHtml()">HTML</div>
-      <div class="descriptionHtml" id="descriptionHtml"></div>
+      <div class="description Html" id="descriptionHtml"></div>
     </div>
     <div class="card" onclick="showCss()">
       <div class="header css">CSS</div>
@@ -34,89 +34,65 @@
       <div class="header javascript">JavaScript</div>
       <div id="js" class="description"></div>
     </div>
-    <div class="card" onclick="showKvinne()">
-      <div class="header doll">Hode,kropp og ben</div>
 
+    <div class="card">
+      <div class="header doll" onclick="showKvinne()">Hode,kropp og ben</div>
       <div id="kvinne" class="description"></div>
     </div>
 
-    <h3>Bla opp og ned</h3>
-    <div style="display: flex"></div>
-    <div onclick="select1()" id="something">Hode,kropp og ben</div>
-
     <script>
-      function showKvinne() {
-        //original
+      function showBody() {
         document.getElementById("kvinne").innerHTML = `
-                  <div class="image-container">
-                    <button onClick='showNumber4()'>◀</button>
-                    <img src="img/head1.png" />
-                    <button onclisck='showNumber2()'>▶</button>
-                  </div>
-                  <div class="image-container">
-                    <button onClick='showNumber4()>◀</button>
-                    <img src="img/body1.png" />
-                    <button onclisck='showNumber2()>▶</button>
-                  </div>
-                  <div class="image-container">
-                    <button onClick='showNumber4()>◀</button>
-                    <img src="img/legs1.png" />
-                    <button onclisck='showNumber2()>▶</button>
-                  </div>`;
+       <div class="image-container">
+  <button onClick="showKvinne()">◀</button>
+  <img src="img/body2.png" />
+  <button onClick="showKvinne3()">▶</button>
+</div>
+        `;
       }
+
+      function showKvinne() {
+        document.getElementById("kvinne").innerHTML = `
+    <div class="image-container">
+      <button onClick="showKvinne4()">◀</button>
+      <img src="img/head1.png" />
+      <button onClick="showKvinne2()">▶</button>
+    </div>
+
+   `;
+      }
+
       function showKvinne2() {
         document.getElementById("kvinne").innerHTML = `
-                  <div class="image-container">
-                    <button onClick='showKvinne1()'>◀</button>
-                    <img src="img/head1.png" />
-                    <button onclisck='showKvinne3()>▶</button>
-                  </div>
-                  <div class="image-container">
-                    <button onClick='showKvinne1()>◀</button>
-                    <img src="img/body1.png" />
-                    <button onclisck='showKvinne3()▶</button>
-                  </div>
-                  <div class="image-container">
-                    <button onClick='showKvinne1()>◀</button>
-                    <img src="img/legs1.png" />
-                    <button onclisck='showKvinne3()▶</button>
-                  </div>`;
+    <div class="image-container">
+      <button onClick="showKvinne()">◀</button>
+      <img src="img/head2.png" />
+      <button onClick="showKvinne3()">▶</button>
+    </div>
+
+    `;
       }
+
       function showKvinne3() {
         document.getElementById("kvinne").innerHTML = `
-                  <div class="image-container">
-                    <button onClick='showKvinne2()'>◀</button>
-                    <img src="img/head1.png" />
-                    <button onclisck='showKvinne4()'>▶</button>
-                  </div>
-                  <div class="image-container">
-                    <button onClick='showKvinne2()>◀</button>
-                    <img src="img/body1.png" />
-                    <button onclisck='showKvinne4()>▶</button>
-                  </div>
-                  <div class="image-container">
-                    <button onClick='showKvinne2()>◀</button>
-                    <img src="img/legs1.png" />
-                    <button onclisck='showKvinne4()>▶</button>
-                  </div>`;
+    <div class="image-container">
+      <button onClick="showKvinne2()">◀</button>
+      <img src="img/head3.png" />
+      <button onClick="showKvinne4()">▶</button>
+    </div>
+
+   `;
       }
+
       function showKvinne4() {
         document.getElementById("kvinne").innerHTML = `
-                  <div class="image-container">
-                    <button onClick='showKvinne3()'>◀</button>
-                    <img src="img/head1.png" />
-                    <button onclisck='showKvinne()'>▶</button>
-                  </div>
-                  <div class="image-container">
-                    <button onClick='showNumber3()>◀</button>
-                    <img src="img/body1.png" />
-                    <button onclisck='showKvinne()>▶</button>
-                  </div>
-                  <div class="image-container">
-                    <button onClick='showKvinne3()>◀</button>
-                    <img src="img/legs1.png" />
-                    <button onclisck='showKvinne()>▶</button>
-                  </div>`;
+    <div class="image-container">
+      <button onClick="showKvinne3()">◀</button>
+      <img src="img/head4.png" />
+      <button onClick="showKvinne()">▶</button>
+    </div>
+
+   `;
       }
 
       function select1() {
@@ -251,7 +227,7 @@
         document.getElementById("descriptionHtml").innerHTML = "";
         document.getElementById("descriptionCss").innerHTML = "";
         document.getElementById("js").innerHTML = "";
-        document.getElementById("kvinne").innerHTML = "";
+        // document.getElementById("kvinne").innerHTML = "";
       }
     </script>
   </body>
